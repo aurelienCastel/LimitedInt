@@ -29,19 +29,19 @@ Object.defineProperty(LimitedInt.prototype, "value",
 	},
 	set : function(value)
 	{
-		if(value == null || value % 1 != 0)
+		if(typeof value !== "number" || value % 1 != 0)
 			console.warn("LimitedInt .value can only be set to integers, it will not be set."); 
 		else if(value < this.limitMin) 
 		{
 			this._value = this.limitMin;
 			console.warn("LimitedInt .value cannot goes under .limitMin, it will be set to : " +
-						 this.limitMin.toString());
+						 this.limitMin);
 		}
 		else if(value > this.limitMax)
 		{
 			this._value = this.limitMax;
 			console.warn("LimitedInt .value cannot goes beyond .limitMax, it will be set to: " +
-						 this.limitMax.toString());
+						 this.limitMax);
 		}
 		else
 			this._value = value;
@@ -55,14 +55,14 @@ Object.defineProperty(LimitedInt.prototype, "limitMin",
 	},
 	set : function(value)
 	{
-		if(value == null || value % 1 != 0)
+		if(typeof value !== "number" || value % 1 != 0)
 			console.warn("LimitedInt .limitMin can only be set to integers, it will not be set."); 
 		else if(value > this.limitMax) 
 			console.warn("LimitedInt .limitMin cannot be higher than .limitMax : " +
-						 this.limitMax.toString() + ", it will not be set.");
+						 this.limitMax + ", it will not be set.");
 		else if(this.value != null && value > this.value)
 			console.warn("LimitedInt .limitMin cannot be higher than .value : " +
-						 this.value.toString() + ", it will not be set.");
+						 this.value + ", it will not be set.");
 		else
 			this._limitMin = value;
 	}
@@ -75,14 +75,14 @@ Object.defineProperty(LimitedInt.prototype, "limitMax",
 	},
 	set : function(value)
 	{
-		if(value == null || value % 1 != 0)
+		if(typeof value !== "number" || value % 1 != 0)
 			console.warn("LimitedInt .limitMax can only be set to integers, it will not be set."); 
 		else if(value < this.limitMin) 
 			console.warn("LimitedInt .limitMax cannot be lower than .limitMin : " +
-						 this.limitMin.toString() + ", it will not be set.");
+						 this.limitMin + ", it will not be set.");
 		else if(this.value != null && value < this.value)
 			console.warn("LimitedInt .limitMax cannot be lower than .value : " +
-						 this.value.toString() + ", it will not be set.");
+						 this.value + ", it will not be set.");
 		else
 			this._limitMax = value;
 	}

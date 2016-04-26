@@ -56,13 +56,3 @@ If you try to set the .limitMin of a LimitedInt to something higher than its .li
 If you try to set the .limitMin of a LimitedInt to something higher than its .value, .limitMin will not be set. <br>
 If you try to set the .limitMax of a LimitedInt to something lower than its .limitMin, .limitMax will not be set. <br>
 If you try to set the .limitMax of a LimitedInt to something lower than its .value, .limitMax will not be set. <br>
-
----
-	var switch = new LimitedInt(-1, 1, "three state switch");
-	switch.value = 0; // Works fine.
-	switch.limitMin = 2; // This assignment is ignored, write a warning in the console.
-	switch.limitMin = 1; // This assignment is ignored, write a warning in the console.
-If you try to set the .limitMin of a LimitedInt to something higher than its .limitMax, .limitMin will not be set. <br>
-If you try to set the .limitMin of a LimitedInt to something higher than its .value, .limitMin will not be set. <br>
-If you try to set the .limitMax of a LimitedInt to something lower than its .limitMin, .limitMax will not be set. <br>
-If you try to set the .limitMax of a LimitedInt to something lower than its .value, .limitMax will not be set. <br>
